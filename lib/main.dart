@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Seve\'s App',
+      title: 'seve_kang_',
       home: ProfileScreen(),
     );
   }
@@ -21,14 +21,23 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        title: Text('seve_kang_'),
+        backgroundColor: const Color.fromARGB(255, 0, 69, 125),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              'Seve\'s App',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
       body: Container(
-        padding: const EdgeInsets.all(16.0),
-        color: const Color.fromARGB(255, 253, 253, 253),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        padding: const EdgeInsets.all(10.0),
+        color: const Color.fromARGB(255, 246, 246, 246),
+        child: ListView(
           children: [
             Row(
               children: [
@@ -43,15 +52,37 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20.0,),
 
-            InfoSection(icon: Icons.home, title: 'Address', data: '189, Yulgok-ro, Jongno District, Seoul, South Korea'),
-            InfoSection(icon: Icons.email, title: 'Email', data: 'augustineseve.kangbacale@wvsu.edu.ph'),
-            InfoSection(icon: Icons.info, title: 'Course', data: 'Bachelor of Science in Information Technology'),
-            InfoSection(icon: Icons.person, title: 'Hobbies', data: 'Sleeping, Eating, Surfing the internet'),
-            InfoSection(icon: Icons.favorite, title: 'Favorites', data: 'Reading, Coding'),
+            SizedBox(height: 20.0),
 
-            Biography(),
+            Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 0, 69, 125), 
+                borderRadius: BorderRadius.circular(10.0), 
+              ),
+              padding: const EdgeInsets.all(5.0),
+              child: Column(
+                children: [
+                  InfoSection(icon: Icons.info, title: 'Course', data: 'Bachelor of Science in Information Technology'),
+                  InfoSection(icon: Icons.home, title: 'Address', data: '189, Yulgok-ro, Jongno District, Seoul, South Korea'),
+                  InfoSection(icon: Icons.email, title: 'Email', data: 'augustineseve.kangbacale@wvsu.edu.ph'),
+                  InfoSection(icon: Icons.phone, title: 'Phone Number', data: '0958 480 9343'),
+                  InfoSection(icon: Icons.person, title: 'Hobbies', data: 'Sleeping, Eating, Surfing the internet'),
+                  InfoSection(icon: Icons.favorite, title: 'Favorites', data: 'Music, Technology, Coding'),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 20.0),
+
+            Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 0, 69, 125),  
+                borderRadius: BorderRadius.circular(10.0), 
+              ),
+              padding: const EdgeInsets.all(16.0),
+              child: Biography(),
+            )
           ],
         ),
       ),
@@ -69,18 +100,17 @@ class InfoSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return Container(
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(5.0),
       margin: EdgeInsets.symmetric(vertical: 4.0), 
-      color: const Color.fromARGB(255, 192, 226, 255),
       child: Row(
         children: [
-          Icon(icon, size: 30.0),
+          Icon(icon, size: 30.0, color: Colors.white,),
           SizedBox(width: 10.0),
           Text(
             '$title: ',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white), textAlign: TextAlign.justify,
           ),
-          Text(data),
+          Text(data, style: TextStyle(fontSize: 14, color: Colors.white), textAlign: TextAlign.justify,),
         ],
       ),
     );
@@ -91,20 +121,20 @@ class Biography extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return Container(
-      padding: EdgeInsets.all(8.0),
-      margin: EdgeInsets.symmetric(vertical: 4.0), 
-      color: const Color.fromARGB(255, 192, 226, 255),
       child: Column(
-        
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'My Biography',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          SizedBox(height: 10.0),
           Text(
-            'I am a passionate developer with a love for technology and continuous learning. '
-            'In my spare time, I enjoy reading, exploring new hobbies, and spending time with family and friends.',
-            style: TextStyle(fontSize: 16),
+            'I am passionate with exploring technology and a massive Apple fanboy. '
+            'I like to spend my time infront of a screen whether it\'d be a monitor, TV, laptop, tablet, or phone, I would be using it. '
+            'Aside from that, I also like to roam around and travel. ',
+            style: TextStyle(fontSize: 16, color: Colors.white),
+            textAlign: TextAlign.justify,
           ),
         ],
       ),
